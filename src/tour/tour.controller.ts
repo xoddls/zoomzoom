@@ -8,15 +8,14 @@ import {
   Delete,
 } from '@nestjs/common';
 import { TourService } from './tour.service';
-import { CreateTourDto } from './dto/create-tour.dto';
 
 @Controller('tour')
 export class TourController {
   constructor(private readonly tourService: TourService) { }
 
   @Post()
-  create(@Body() createTourDto: CreateTourDto) {
-    return this.tourService.create(createTourDto);
+  create() {
+    return this.tourService.create();
   }
 
   @Get()

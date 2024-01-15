@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { CreateTourDto } from './dto/create-tour.dto';
 
 @Injectable()
 export class TourService {
-  create(createTourDto: CreateTourDto) {
+  create() {
     return 'This action adds a new tour';
   }
 
