@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class TourService {
-  create() {
+  autoApproveReservations() {
     return 'This action adds a new tour';
   }
 

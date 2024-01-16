@@ -2,23 +2,15 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class SellerService {
-  create() {
-    return 'This action adds a new seller';
+  sellerApproveReservations(): string {
+    return 'add reervation';
   }
 
-  findAll() {
-    return `This action returns all seller`;
+  setHoliday(): string {
+    return 'add holiday';
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} seller`;
-  }
-
-  update(id: number) {
-    return `This action updates a #${id} seller`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} seller`;
+  checkReservation(): string {
+    return 'check Reservation'
   }
 }
