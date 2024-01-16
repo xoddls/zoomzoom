@@ -1,24 +1,40 @@
 import { Injectable } from '@nestjs/common';
+import { Tour } from './entities/tour.entity';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { AppDataSource } from '../../data-source';
+
+
 
 @Injectable()
 export class TourService {
-  autoApproveReservations() {
-    return 'This action adds a new tour';
-  }
 
-  findAll() {
-    return `This action returns all tour`;
-  }
+  constructor(
+    @InjectRepository(Tour) private tourRepo: Repository<Tour>,
+  ) { }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tour`;
-  }
+  async autoApproveReservations(
+    userId: number,
+    date: Date
+  ) {
+    await AppDataSource.transaction(async (t) => {
 
-  update(id: number) {
-    return `This action updates a #${id} tour`;
-  }
+      await t.query('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE');
 
-  remove(id: number) {
-    return `This action removes a #${id} tour`;
+      const tour = await t.getRepository(Tour)
+        .createQueryBuilder('tour')
+        .where('tour.tourDate = :date', { date: date })
+        .getMany()
+
+      if (tour.length >= 5) {
+        return 'over 5';
+      } else {
+        await t.save(Tour, {
+          userId: userId,
+          tourDate: date
+        });
+        return 'ok';
+      }
+    });
   }
 }

@@ -1,13 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('tour')
-export class TourEntity {
+@Entity('Tour')
+export class Tour {
   @PrimaryGeneratedColumn()
   public id!: number;
 
-  @Column('varchar')
-  public tourname!: string;
+  @Column()
+  public userId!: number;
 
-  @Column('varchar')
-  public location!: string;
+  @Column('date')
+  public tourDate!: Date;
 }
