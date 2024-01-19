@@ -124,6 +124,11 @@ JWT_EXPIRESIN=9999y
 
 
 
+# DB
+
++ 
+
+
 ## 주요기능
 
 + API
