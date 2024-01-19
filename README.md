@@ -24,12 +24,19 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+투어 상품 예약을 처리하는 API 서버 구현
 
 ## Installation
 
 ```bash
+# install
 $ npm install
+
+# migration-generate
+$ npm run migration:generate
+
+# migration-run
+$ npm run migration:run
 ```
 
 ## Running the app
