@@ -127,11 +127,21 @@ JWT_EXPIRESIN=9999y
 ## 주요기능
 
 + API
++ @Post - http://localhost:3000/holiday
+  + 설명 : 하루 단위로 투어를 하지 않는 휴일 지정 ex) 3월1일
+```c
+//Request
+export class AddHolidayDto {
+  @IsDateString()
+  holidayDate!: string;
+}
 
-```bash
-@Post - http://localhost:3000/holiday
-+ 하루 단위로 투어를 하지 않는 휴일 지정 ex) 3월1일
-
+//Response
+export class AddHolidayRes extends AddHolidayDto {
+  @IsNumber()
+  id!: number;
+}
+```
 
 ## Stay in touch
 
