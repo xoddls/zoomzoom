@@ -126,9 +126,16 @@ JWT_EXPIRESIN=9999y
 
 # DB
 
-+ 
 
-
+```bash
+| Column       | Type      | Description            |
+| ------------ | --------- | ---------------------- |
+| `id`         | INTEGER   | 사용자 고유 식별자    |
+| `username`   | VARCHAR   | 사용자 이름            |
+| `email`      | VARCHAR   | 사용자 이메일 주소    |
+| `created_at` | TIMESTAMP | 계정 생성 일시        |
+| `updated_at` | TIMESTAMP | 계정 업데이트 일시    |
+```bash
 ## 주요기능
 
 + API
