@@ -284,6 +284,9 @@ export enum dayHolidayRule {
 
 
 
+
+
+
 2. 특정 요일, 또는 하루 단위로 투어를 하지 않는 휴일 지정 가능 (ex: 매주 월요일 휴일, 3월 1일 휴일)
 
    2개의 방법을 통해 나누어 구현하였습니다.
@@ -320,6 +323,9 @@ export enum dayHolidayRule {
   getWeekNumber : Date타입의 데이터가 해당 월의 몇번째 주에 해당하는지 계산합니다.
    
 
+
+
+
    
 3. 토큰을 이용해 고객의 예약 여부 확인이 가능하며, 한번 승인한 토큰은 재사용 불가
 
@@ -339,6 +345,9 @@ export enum dayHolidayRule {
 
 
   verifyToken : 토큰 유효성 검사
+
+
+
   
 
 
@@ -356,10 +365,17 @@ export enum dayHolidayRule {
   GET http://localhost:3000/monthlyAvailablity : 해당년월 예약이 가능한 일정 조회
 
 
+
+
+
   
 5. 예약 신청에 성공한 고객은 유일한 토큰 값을 승인의 결과값으로 획득
 
    JWT를 사용하여 토큰을 발급합니다. 3번의 내용과 동일합니다.
+
+
+
+
    
 
 6. 여행 3일전까지 예약 취소 가능
@@ -368,6 +384,9 @@ export enum dayHolidayRule {
 
 
    GET http://localhost:3000/reservation/:reservationId : 예약 취소
+
+
+
 
 
 
@@ -380,6 +399,7 @@ export enum dayHolidayRule {
   이러한 구조를 통해 서비스 로직을 직관적으로 확인할 수는 있지만 추후 업데이트와 규모 확대를 고려했을때 반드시 분리하여야 합니다.
 
 
+
 + 인터페이스 도입
 
   시간이 촉박하여 인터페이스를 활용하지 못했습니다.
@@ -387,6 +407,7 @@ export enum dayHolidayRule {
   현재 reservation모듈이 auth모듈을 의존하거나 상위 모듈이 dto를 의존하는등 DIP가 전혀 준수되지 않았습니다.
 
   준수한 아키텍처를 유지하기 위해 개선되어야 합니다.
+
 
 
 + 트랜잭션 동시성 해결
@@ -398,9 +419,11 @@ export enum dayHolidayRule {
   이러한 경우 고객이 일정을 조회하거나 휴일에 해당하는 날이 스케쥴러를 통해 자동으로 휴일로 지정되지 않는 이상 계속 해서 휴일 지정이 안되는 현상이 발생합니다.
 
 
+
 + autoAddHolidayByRuule, addHolidayByRule 모듈화
 
   두 로직에는 휴일 규칙에 따라 적합한 날인지 판단하는 로직이 중복됩니다. 이를 모듈화를 통해 코드 반복을 줄이고 유지보수성을 확보해야합니다.
+
 
 
 + async updateRedis(t: EntityManager, date: string)
@@ -408,6 +431,7 @@ export enum dayHolidayRule {
   현재 updateRedis에 파라미터로 외부에서 받아온 트랜잭션 t, EntityManager를 매개변수로 사용하지만 실제 로직에서는 사용되지 않습니다.
 
   이러한 경우 updateRedis에서 에러가 발생하여도 이전 메소드에서의 트랜잭션이 롤백되지 않습니다.
+
 
 
 + 테스트케이스 추가
