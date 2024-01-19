@@ -1,16 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('reservation')
-export class ReservationEntity {
+export class Reservation {
   @PrimaryGeneratedColumn()
   public id!: number;
 
-  @Column('varchar')
-  public company!: string;
+  @Column('int')
+  public userId!: number;
 
-  @Column('varchar')
-  public phone!: string;
-
-  @Column('varchar')
-  public testmigration!: string;
+  @Column('date')
+  public date!: string;
 }
