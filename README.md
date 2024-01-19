@@ -26,6 +26,8 @@
 
 투어 상품 예약을 처리하는 API 서버 구현
 
+2024.01.15 ~ 2024.01.20
+
 
 ## Installation
 
@@ -41,6 +43,7 @@ $ npm run migration:run
 ```
 
 
+
 ## Running the app
 
 ```bash
@@ -53,6 +56,7 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
 
 
 ## 환경요구사항
@@ -72,6 +76,7 @@ $ npm run start:prod
         + nestjs/jwt // @10.2.0
 
         + cache-manager-ioredis // @2.1.0
+
 
 
 ## 기능요구사항
@@ -94,24 +99,39 @@ $ npm run start:prod
 3. 여행 3일전까지 예약 취소 가능
 
 
-## 기능요구사항
+
+## 설정
 
 + 환경변수
 
 ```bash
-# unit tests
-$ npm run test
+NODE_ENV=local
 
-# e2e tests
-$ npm run test:e2e
+DB_HOST=localhost
 
-# test coverage
-$ npm run test:cov
+DB_PORT=3306
+
+DB_USERNAME=zoomzoom
+
+DB_PASSWORD=zoomzoom
+
+DB_NAME=zoomzoom
+
+JWT_SECRETKEY=zoomzoom
+
+JWT_EXPIRESIN=9999y
 ```
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+## 주요기능
+
++ API
+
+```bash
+@Post - http://localhost:3000/holiday
++ 하루 단위로 투어를 하지 않는 휴일 지정 ex) 3월1일
+
 
 ## Stay in touch
 
