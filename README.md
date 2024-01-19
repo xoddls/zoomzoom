@@ -22,7 +22,7 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## 프로젝트 설명
 
 투어 상품 예약을 처리하는 API 서버 구현
 
@@ -52,7 +52,17 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## 요구사항
+
+판매자
+하루에 받을수 있는 투어 예약은 5건으로 자동 승인, 판매자는 추가로 예약 승인 가능
+특정 요일, 또는 하루 단위로 투어를 하지 않는 휴일 지정 가능 (ex: 매주 월요일 휴일, 3월 1일 휴일)
+토큰을 이용해 고객의 예약 여부 확인이 가능하며, 한번 승인한 토큰은 재사용 불가
+고객
+월 단위로 예약이 가능한 일정 조회, 판매자가 휴일 정보를 수정하지 않는다면 캐시 정보 사용
+예약 신청에 성공한 고객은 유일한 토큰 값을 승인의 결과값으로 획득
+여행 3일전까지 예약 취소 가능
+
 
 ```bash
 # unit tests
