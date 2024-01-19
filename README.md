@@ -64,11 +64,11 @@ Web application framework : nestjs // v.8.2.1
 
 ORM : typeorm // @nestjs/typeorm 10.0.1, typeorm 0.3.19
 
-기타 : @nestjs/schedule // @4.0.0
+기타 : - @nestjs/schedule // @4.0.0
 
-       @nestjs/jwt // @10.2.0
+       - @nestjs/jwt // @10.2.0
 
-       @cache-manager-ioredis // @2.1.0
+       - @cache-manager-ioredis // @2.1.0
 
 
 ## 기능요구사항
